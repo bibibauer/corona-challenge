@@ -1,21 +1,21 @@
-var pop = 50;
-var size = 15;
-var rX = [];
-var rY = [];
-var rW = [];
-var rH = [];
-// var sFill = [];
-var r = [];
-var g = [];
-var b = [];
+let pop = 100;
+let size = 15;
+let rX = [];
+let rY = [];
+let rW = [];
+let rH = [];
+// let sFill = [];
+let r = [];
+let g = [];
+let b = [];
 
 
 function setup() {
   // put setup code here
   createCanvas(windowWidth, windowHeight);
-  for (var i = 0; i < pop; i++) {
+  for (let i = 0; i < pop; i++) {
     rX[i] = random(width);
-    rY[i] = random(10, height);
+    rY[i] = random(height);
     rW[i] = random(10, size);
     rH[i] = random(10, size);
     // sFill[i] = random(50,200);
@@ -33,14 +33,14 @@ function draw() {
   noStroke();
   ellipseMode(CORNERS);
 
-  for (var i = 0; i < rX.length; i++){
+  for (let i = 0; i < rX.length; i++){
     // fill(sFill[i]);
     fill(r[i], g[i], b[i]);
     
     ellipse(rX[i], rY[i], rX[i]+rW[i], rY[i]+rH[i]);
 
     if(rX[i] < width){
-      rX[i] += 0.5;
+      rX[i] += 0.3;
     }
     else{
       rX[i] = 0;
@@ -55,20 +55,30 @@ function draw() {
       rH[i] = size;
     }
     
-    
-    
-    // if(-30 < rW[i] < 30){
-    //   rW[i] -= 1;
+    // if (rX.length > 300){
+    //   rX.remove(pop, 10);
+    //   rY.remove(pop, 10);
+    //   rW.remove(pop, 10);
+    //   rH.remove(pop, 10);
+    //   r.remove(pop, 10);
+    //   g.remove(pop, 10);
+    //   b.remove(pop, 10);
     // }
   }
 }
 
 function mouseDragged() {
-    append(rX, mouseX);
-    append(rY, mouseY);
-    append(rW, 20);
-    append(rH, 20);
-    append(r, random(100,20));
-    append(g, random(200,255));
-    append(b, random(200,255));
+    mouseClicked();
+}
+
+function mouseClicked() {
+  append(rX, mouseX);
+  append(rY, mouseY);
+
+  append(rW, 20);
+  append(rH, 20);
+
+  append(r, random(100, 20));
+  append(g, random(200, 255));
+  append(b, random(200, 255));
 }
