@@ -1,19 +1,19 @@
-let pop = 50;
-let size = 15;
-let rX = [];
-let rY = [];
-let rW = [];
-let rH = [];
-// let sFill = [];
-let r = [];
-let g = [];
-let b = [];
+var pop = 50;
+var size = 15;
+var rX = [];
+var rY = [];
+var rW = [];
+var rH = [];
+// var sFill = [];
+var r = [];
+var g = [];
+var b = [];
 
 
 function setup() {
   // put setup code here
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < pop; i++) {
+  for (var i = 0; i < pop; i++) {
     rX[i] = random(width);
     rY[i] = random(10, height);
     rW[i] = random(10, size);
@@ -33,7 +33,7 @@ function draw() {
   noStroke();
   ellipseMode(CORNERS);
 
-  for (let i = 0; i < rX.length; i++){
+  for (var i = 0; i < rX.length; i++){
     // fill(sFill[i]);
     fill(r[i], g[i], b[i]);
     
